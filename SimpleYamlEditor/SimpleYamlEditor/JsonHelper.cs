@@ -39,7 +39,10 @@ namespace SimpleYamlEditor
                     break;
 
                 default:
-                    dict.Add(prefix, ((JValue)token).Value);
+                    if (!dict.ContainsKey(prefix))
+                    {
+                        dict.Add(prefix, ((JValue)token).Value);
+                    }
                     break;
             }
         }

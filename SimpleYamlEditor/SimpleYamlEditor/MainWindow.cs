@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -60,7 +61,25 @@ namespace SimpleYamlEditor
             grid.Columns[0].Frozen = true;
             grid.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.ColumnHeader);
             grid.AutoResizeColumn(0, DataGridViewAutoSizeColumnMode.AllCells);
+
+            MarkEmptyCells();
+
             btnSave.Text = "Save configs";
+        }
+
+        private void MarkEmptyCells()
+        {
+            for (var c = 1; c < grid.ColumnCount; c++)
+            {
+                for (var r = 1; r < grid.RowCount; r++)
+                {
+                    if (grid[c, r].Value == string.Empty)
+                    {
+                        grid[c, r].Style = new DataGridViewCellStyle { BackColor = Color.LavenderBlush };
+                    }
+                }
+            }
+
         }
 
         private IEnumerable<(string, Dictionary<string, object>)> LoadYaml(string directoryName)
@@ -98,7 +117,7 @@ namespace SimpleYamlEditor
                     {
                         var value = grid[c, r].Value as string;
                         var key = grid[0, r].Value as string;
-                        if (!string.IsNullOrEmpty(key))
+                        if (!string.IsNullOrEmpty(key) && !string.IsNullOrEmpty(value))
                             sw.WriteLine($"{key}: '{value}'");
                     }
                 }
