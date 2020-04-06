@@ -113,7 +113,7 @@ namespace SimpleYamlEditor
                 var filename = grid.Columns[c].HeaderText;
                 using (var sw = new StreamWriter(Path.Combine(DirectoryPath, filename), false))
                 {
-                    for (var r = 1; r < grid.RowCount; r++)
+                    for (var r = 0; r < grid.RowCount; r++)
                     {
                         var value = grid[c, r].Value as string;
                         var key = grid[0, r].Value as string;
