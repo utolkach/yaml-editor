@@ -104,7 +104,7 @@ namespace SimpleYamlEditor
         private void btnSave_Click(object sender, EventArgs e)
         {
             var sb = new StringBuilder();
-            for (var c = 1; c < grid.ColumnCount; c++)
+            for (var c = 0; c < grid.ColumnCount; c++)
             {
                 var filename = grid.Columns[c].HeaderText;
                 using (var sw = new StreamWriter(Path.Combine(DirectoryPath, filename), false))
