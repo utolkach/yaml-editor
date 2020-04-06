@@ -12,13 +12,12 @@ namespace SimpleYamlEditor
 {
     public partial class MainWindow : Form
     {
-
         public static string DirectoryPath = string.Empty;
 
         public MainWindow()
         {
             InitializeComponent();
-
+            
             // enabling Double buffering as said here: https://10tec.com/articles/why-datagridview-slow.aspx
             if (!SystemInformation.TerminalServerSession)
             {
@@ -99,6 +98,7 @@ namespace SimpleYamlEditor
                     }
                 }
             }
+
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -109,7 +109,7 @@ namespace SimpleYamlEditor
                 var filename = grid.Columns[c].HeaderText;
                 using (var sw = new StreamWriter(Path.Combine(DirectoryPath, filename), false))
                 {
-                    for (var r = 0; r < grid.RowCount; r++)
+                    for (var r = 1; r < grid.RowCount; r++)
                     {
                         var value = grid[c, r].Value as string;
                         var key = grid[0, r].Value as string;
@@ -121,6 +121,7 @@ namespace SimpleYamlEditor
                     }
 
                 }
+
             }
 
             btnSave.Text = "Saved!";
