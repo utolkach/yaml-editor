@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleYamlEditor", "SimpleYamlEditor\SimpleYamlEditor.csproj", "{96FBA974-14FC-4CFF-9093-51EA5BC821B0}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleYamlEditor.Core", "SimpleYamlEditor.Core\SimpleYamlEditor.Core.csproj", "{E3CF04D9-21CB-4AA7-9CCC-921E8BF92763}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleYamlEditor.Structurizer.Cli", "SimpleYamlEditor.Structurizer.Cli\SimpleYamlEditor.Structurizer.Cli.csproj", "{DF7A2687-61FE-4185-8BDC-E873183F0BDE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{96FBA974-14FC-4CFF-9093-51EA5BC821B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96FBA974-14FC-4CFF-9093-51EA5BC821B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96FBA974-14FC-4CFF-9093-51EA5BC821B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3CF04D9-21CB-4AA7-9CCC-921E8BF92763}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3CF04D9-21CB-4AA7-9CCC-921E8BF92763}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3CF04D9-21CB-4AA7-9CCC-921E8BF92763}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3CF04D9-21CB-4AA7-9CCC-921E8BF92763}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF7A2687-61FE-4185-8BDC-E873183F0BDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF7A2687-61FE-4185-8BDC-E873183F0BDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF7A2687-61FE-4185-8BDC-E873183F0BDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF7A2687-61FE-4185-8BDC-E873183F0BDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

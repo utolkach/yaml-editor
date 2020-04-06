@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 
-namespace SimpleYamlEditor
+namespace SimpleYamlEditor.Core
 {
     /// <summary>
     /// Found it here: https://stackoverflow.com/a/32800161
