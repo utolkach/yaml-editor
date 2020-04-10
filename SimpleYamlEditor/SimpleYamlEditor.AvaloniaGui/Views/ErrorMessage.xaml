@@ -1,0 +1,19 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:SimpleYamlEditor.AvaloniaGui.ViewModels;assembly=SimpleYamlEditor.AvaloniaGui"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="200" d:DesignHeight="100"
+        x:Class="SimpleYamlEditor.AvaloniaGui.Views.ErrorMessage"
+        Title="Error" Height="100" Width="200" WindowStartupLocation="CenterOwner">
+
+  <Design.DataContext>
+    <vm:ErrorMessageViewModel/>
+  </Design.DataContext>
+
+  <Panel Background="Crimson">
+    <TextBlock Margin="10"  Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding ErrorMessageText}"></TextBlock>
+    <Button Height="30" Width="60" HorizontalAlignment="Center" Margin="10"
+            VerticalAlignment="Bottom">Close</Button>
+  </Panel>
+</Window>

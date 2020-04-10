@@ -1,0 +1,39 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:SimpleYamlEditor.AvaloniaGui.ViewModels;assembly=SimpleYamlEditor.AvaloniaGui"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="SimpleYamlEditor.AvaloniaGui.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="SimpleYamlEditor" Closing="exit" >
+
+  <Design.DataContext>
+    <vm:MainWindowViewModel/>
+  </Design.DataContext>
+  <Panel>
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="50" />
+        <RowDefinition Height="5*" />
+      </Grid.RowDefinitions>
+      <DockPanel VerticalAlignment="Top" Background="#3A3A3A" Grid.Row="0">
+        <DockPanel HorizontalAlignment="Left">
+          <Button Name="btnLoad" BorderBrush="#252525" Background="#393939" Foreground="#F7F7F7" Cursor="Hand" Height="30" Width="90" HorizontalAlignment="Left" Margin="10" Click="btnLoad_Click">Load config</Button>
+        </DockPanel>
+        <DockPanel HorizontalAlignment="Right">
+          <CheckBox BorderBrush="#252525" Background="#393939" Foreground="#F7F7F7"  Margin="10" Height="30" Name="chkStructured">Save structured file</CheckBox>
+          <Button Name="btnSave" BorderBrush="#252525" Background="#393939" Foreground="#F7F7F7" Cursor="Hand" Height="30" Width="90" Margin="10" Click="btnSave_Click">Save config</Button>
+        </DockPanel>
+      </DockPanel>
+      <Panel HorizontalAlignment="Left"  ClipToBounds="True" Grid.Row="1">
+        <DataGrid Items ="{Binding List}" Name="grid" RowBackground="#FFFFFF" AlternatingRowBackground="#F8F9F9" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" CanUserResizeColumns="True" CanUserReorderColumns="True" CanUserSortColumns="True" FrozenColumnCount="1">
+          <DataGrid.Columns>
+            <DataGridTextColumn Header="Propetry" Binding="{Binding Key}" Width="auto" FontWeight="Bold"  >
+            </DataGridTextColumn>
+          </DataGrid.Columns>
+        </DataGrid>
+      </Panel>
+    </Grid>
+  </Panel>
+</Window>
