@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleYamlEditor.Core", "Si
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleYamlEditor.Structurizer.Cli", "SimpleYamlEditor.Structurizer.Cli\SimpleYamlEditor.Structurizer.Cli.csproj", "{DF7A2687-61FE-4185-8BDC-E873183F0BDE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleYamlEditor.AvaloniaGui", "SimpleYamlEditor.AvaloniaGui\SimpleYamlEditor.AvaloniaGui.csproj", "{F1DE21A4-6372-4F95-8681-CFB6199F903A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{DF7A2687-61FE-4185-8BDC-E873183F0BDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF7A2687-61FE-4185-8BDC-E873183F0BDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF7A2687-61FE-4185-8BDC-E873183F0BDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1DE21A4-6372-4F95-8681-CFB6199F903A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1DE21A4-6372-4F95-8681-CFB6199F903A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1DE21A4-6372-4F95-8681-CFB6199F903A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1DE21A4-6372-4F95-8681-CFB6199F903A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
