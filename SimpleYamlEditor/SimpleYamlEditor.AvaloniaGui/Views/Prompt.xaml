@@ -1,0 +1,22 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:SimpleYamlEditor.AvaloniaGui.ViewModels;assembly=SimpleYamlEditor.AvaloniaGui"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="250" d:DesignHeight="150"
+        x:Class="SimpleYamlEditor.AvaloniaGui.Views.Prompt"
+        Title="Prompt" Width="250" Height="200">
+
+  <Design.DataContext>
+    <vm:ErrorMessageViewModel/>
+  </Design.DataContext>
+  
+  <StackPanel>
+    <TextBlock Margin="10" Text="{Binding ErrorMessageText}"/>
+    <DockPanel>
+      <Button Name="btnOk" Width="100" HorizontalAlignment="Left" Margin="10" Click="btnOk_Click">OK</Button>
+      <Button Name="btnCancel" Width="100" HorizontalAlignment="Right" Margin="10" Click="btnCancel_Click">Cancel</Button>
+    </DockPanel>
+  </StackPanel>
+
+</Window>
