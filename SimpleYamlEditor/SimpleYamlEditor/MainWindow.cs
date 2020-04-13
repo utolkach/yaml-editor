@@ -34,11 +34,26 @@ namespace SimpleYamlEditor
             grid.Rows.Clear();
             grid.Columns.Clear();
 
-            if (GetPathToOpen(out var directoryName)) return;
+            string directoryName;
+            bool ret;
+            var result = openFileDialog.ShowDialog(this);
+            if (result != DialogResult.OK)
+            {
+                directoryName = string.Empty;
+                ret = true;
+            }
+            else
+            {
+                var path = openFileDialog.FileNames.First();
+                DirectoryPath = Path.GetDirectoryName(path);
+                ret = false;
+            }
+
+            if (ret) return;
             List<(string, Dictionary<string, object>)> configs = null;
             try
             {
-                configs = YamlHelper.LoadYamlAsDictionaries(directoryName).OrderBy(x => x.Item1).ToList();
+                configs = YamlHelper.LoadYamlAsDictionaries(openFileDialog.FileNames.ToList()).OrderBy(x => x.Item1).ToList();
             }
             catch (Exception ex)
             {
@@ -49,21 +64,6 @@ namespace SimpleYamlEditor
             FillGrid(configs, keys);
 
             btnSave.Text = "Save configs";
-        }
-
-        private bool GetPathToOpen(out string directoryName)
-        {
-            var result = openFileDialog.ShowDialog(this);
-            if (result != DialogResult.OK)
-            {
-                directoryName = string.Empty;
-                return true;
-            }
-
-            var path = openFileDialog.FileName;
-            directoryName = Path.GetDirectoryName(path);
-            DirectoryPath = directoryName;
-            return false;
         }
 
         private void FillGrid(List<(string, Dictionary<string, object>)> configs, List<string> keys)
@@ -103,7 +103,6 @@ namespace SimpleYamlEditor
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            var sb = new StringBuilder();
             for (var c = 1; c < grid.ColumnCount; c++)
             {
                 var filename = grid.Columns[c].HeaderText;
@@ -116,7 +115,6 @@ namespace SimpleYamlEditor
                         if (!string.IsNullOrEmpty(key) && !string.IsNullOrEmpty(value))
                         {
                             sw.WriteLine($"{key}: '{value}'");
-                            sb.AppendLine($"{key}: '{value}'");
                         }
                     }
 
@@ -124,6 +122,21 @@ namespace SimpleYamlEditor
             }
 
             btnSave.Text = "Saved!";
+
+            if (checkBox1.Checked)
+            {
+                for (var c = 1; c < grid.ColumnCount; c++)
+                {
+                    var filename = grid.Columns[c].HeaderText;
+
+                    using var sr = new StreamReader(Path.Combine(DirectoryPath, filename));
+                    var struturedFile = YamlHelper.StructureYamlFile(sr.ReadToEnd());
+                    sr.Dispose();
+                    using var sw = new StreamWriter(Path.Combine(DirectoryPath, filename), false);
+                    sw.Write(struturedFile);
+                    sw.Dispose();
+                }
+            }
         }
     }
 }

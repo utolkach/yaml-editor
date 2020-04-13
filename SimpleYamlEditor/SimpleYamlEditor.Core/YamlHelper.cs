@@ -36,6 +36,30 @@ namespace SimpleYamlEditor.Core
             }
         }
 
+        public static  IEnumerable<(string, Dictionary<string, object>)> LoadYamlAsDictionaries(List<string> files)
+        {
+            var deserializer = new DeserializerBuilder()
+                .WithNamingConvention(CamelCaseNamingConvention.Instance)
+                .Build();
+            foreach (var file in files)
+            {
+                object obj = null;
+                    string str;
+
+                    using (var sr = new StreamReader(file))
+                    {
+
+                        str = sr.ReadToEnd();
+                    }
+
+                    var stringReader = new StringReader(str);
+                    obj = deserializer.Deserialize(stringReader);
+
+
+                yield return (Path.GetFileName(file), JsonHelper.DeserializeAndFlatten(JsonConvert.SerializeObject(obj)));
+            }
+        }
+
         public static string StructureYamlFile(string content)
         {
             var yamlStream = LoadStringIntoYamlStream(content);

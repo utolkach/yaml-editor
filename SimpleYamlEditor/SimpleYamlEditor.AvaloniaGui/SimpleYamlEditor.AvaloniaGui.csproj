@@ -2,6 +2,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -15,9 +16,11 @@
   </ItemGroup>
   <ItemGroup>
     <AvaloniaResource Remove="Views\ErrorMessage.xaml" />
+    <AvaloniaResource Remove="Views\Prompt.xaml" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\ErrorMessage.xaml" />
+    <None Remove="Views\Prompt.xaml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="0.9.7" />
@@ -31,11 +34,19 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Views\Prompt.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\SimpleYamlEditor.Core\SimpleYamlEditor.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Views\ErrorMessage.xaml.cs">
       <DependentUpon>ErrorMessage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Prompt.xaml.cs">
+      <DependentUpon>Prompt.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>
